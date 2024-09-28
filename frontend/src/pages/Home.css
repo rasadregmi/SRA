@@ -1,0 +1,94 @@
+/* Reset body margin */
+body {
+    margin: 0;
+}
+
+/* Home container */
+.homeContainer {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    height: 100vh; /* Full viewport height */
+}
+
+/* Home page content */
+.homepg {
+    position: relative; /* Ensures absolute positioning of child elements */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center content horizontally */
+    height: 100%; /* Full height of the container */
+}
+
+/* Image styles */
+.img {
+    width: 100%; /* Full width of the container */
+    height: 100%; /* Full height of the container */
+    object-fit: cover; /* Cover the area while maintaining aspect ratio */
+    opacity: 0.9;
+}
+
+/* Name text styles */
+.name {
+    position: absolute;
+    top: 50%; /* Center vertically */
+    left: 20px; /* Space from the left edge */
+    transform: translateY(-50%); /* Adjust for vertical centering */
+    color: #e63946; /* Red color for alertness */
+    padding: 20px; /* Increased padding for better spacing */
+    text-align: left; /* Align text to the left */
+    max-width: 940px; /* Limits the width to control wrapping */
+    line-height: 1.4; /* Adjusts line spacing for readability */
+    background: rgba(0, 0, 0, 0.6); /* Darker semi-transparent background for contrast */
+    border-radius: 8px; /* Rounded corners for a softer look */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4); /* Darker shadow for depth */
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .name {
+        top: 20%; /* Adjust position for smaller screens */
+        left: 10px; /* Adjust left padding for smaller screens */
+        padding: 10px; /* Reduce padding for smaller screens */
+        max-width: 90%; /* Allow more width on smaller screens */
+    }
+
+    .img {
+        height: auto; /* Maintain aspect ratio */
+    }
+}
+
+.name h1 {
+    margin: 0 0 10px 0; /* Margin for spacing between lines */
+    font-size: 2.5em; /* Adjusted font size for readability */
+    font-weight: bold; /* Makes text bold */
+    line-height: 1.3; /* Controls spacing between lines */
+    color: #f1faee; /* Light color to stand out against the dark background */
+}
+
+/* Button styles */
+.button {
+    display: block; /* Makes the button a block element to control its width and alignment */
+    margin: 20px auto 0; /* Centers the button horizontally with auto margins and adds space above */
+    padding: 12px 24px; /* Adds padding inside the button */
+    font-size: 1.2em; /* Increases font size for readability */
+    font-weight: bold; /* Makes the text bold */
+    color: #ffffff; /* Sets text color to white */
+    background-color: #d62839; /* Red background color for high visibility */
+    border: none; /* Removes default border */
+    border-radius: 6px; /* Slightly rounded corners for a modern look */
+    cursor: pointer; /* Changes cursor to pointer on hover */
+    text-align: center; /* Centers the text inside the button */
+    text-decoration: none; /* Removes underline from text if it's a link */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth transitions for color and scaling effects */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Adds subtle shadow for depth */
+}
+
+.button:hover {
+    background-color: #a03c2c; /* Darker red color on hover for better visual feedback */
+    transform: scale(1.05); /* Slightly enlarges the button on hover */
+}
+
+.button:focus {
+    outline: none; /* Removes default focus outline */
+    box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.2); /* Adds a focus ring with a subtle shadow */
+}

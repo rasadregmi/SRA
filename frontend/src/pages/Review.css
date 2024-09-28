@@ -1,0 +1,162 @@
+/* Base Styles */
+.feedback-message {
+    margin-top: 10px;
+    color: #ff0000; /* Red for error messages */
+}
+
+.feedback-message.success {
+    color: #28a745; /* Green for success messages */
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f7fa; /* Light background for openness */
+    color: #333;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrolling */
+}
+
+/* Navbar Styles */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    height: 60px;
+    background-color: #ffffff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Light shadow for subtle effect */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    z-index: 1000;
+}
+
+/* Adjust body padding to avoid navbar overlap */
+body {
+    padding-top: 70px; /* Space for the fixed navbar */
+}
+
+/* Review Container */
+.container1 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    margin: 0 auto;
+    max-width: 700px; /* Slightly wider container */
+    max-height: calc(100vh - 120px); /* Form height capped to fit within viewport */
+    background-color: #ffffff;
+    border: 10px solid #e0e0e0; /* Lighter border for an open feel */
+    border-radius: 15px; /* Softer rounded corners */
+    transition: transform 0.3s ease;
+    box-shadow: none; /* No shadow for a more open look */
+}
+
+.container1:hover {
+    transform: translateY(-3px);
+}
+
+/* Heading Styles */
+.container1 h1 {
+    color: #ff6347;
+    font-size: 1.8rem; /* Smaller font size */
+    margin-bottom: 15px; /* Reduced margin */
+    text-align: center;
+    font-weight: bold;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #ff6347;
+    padding-bottom: 8px;
+    width: fit-content; 
+}
+
+/* Input and Textarea Styling */
+.web {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.web input,
+.message {
+    width: 100%;
+    height: 50px; /* Uniform height */
+    padding: 15px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ccc; /* Soft, light border */
+    background-color: #fafafa; /* Subtle background color for input fields */
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.web input:focus,
+.message:focus {
+    border-color: #ff6347;
+    box-shadow: 0 2px 6px rgba(255, 99, 71, 0.15); /* Soft shadow effect on focus */
+}
+
+.message {
+    height: 120px; /* Slightly smaller message box */
+    resize: none;
+    margin-top: 15px;
+}
+
+/* Review Rating Stars */
+.App {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 10px; /* More space between stars */
+}
+
+input[type="radio"] {
+    display: none;
+}
+
+.star {
+    cursor: pointer;
+    font-size: 40px; /* Larger stars */
+    color: #e0e0e0; /* Light color for default stars */
+    transition: color 0.3s ease;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.star:hover,
+.star:hover ~ .star {
+    color: #ff6347; /* Highlight on hover */
+}
+
+/* Button Styling */
+.btn {
+    background-color: #ff6347;
+    color: white;
+    border-radius: 30px; /* Softer rounded corners */
+    height: 50px;
+    width: 100%;
+    font-size: 18px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    margin-top: 20px;
+    box-shadow: none; /* Remove shadow for a flatter look */
+}
+
+.btn:hover {
+    background-color: #e5533d;
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        width: 90%;
+        max-height: calc(100vh - 120px); /* Ensure form fits in smaller screens */
+    }
+
+    .btn {
+        width: 100%; /* Full width for button */
+    }
+}
