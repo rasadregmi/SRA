@@ -4,7 +4,6 @@ const connectDB = require('./config/db');
 // Adjust the path if necessary
 const cors = require('cors');
 const Report = require('./models/Report');
-const Review = require('./models/Review');
 const authRoutes = require('./routes/auth');
 const reportRoutes = require('./routes/report');
 const reviewRoutes = require('./routes/review');
@@ -19,7 +18,7 @@ const app = express();
 
 // Configure Multer for file uploads
 const upload = multer({
-    dest: 'uploads/', // Specify your upload directory
+    dest: 'uploads/', // Specify your upload director
     limits: { fileSize: 5 * 1024 * 1024 }, // Limit file size to 5MB
 });
 
@@ -38,7 +37,7 @@ app.use('/api/review', reviewRoutes);
 app.use('/api/profile', profileRoutes); // Use the profile routes
 app.use('/uploads', express.static('uploads')); // Serve uploaded files
 
-app.post('/reviews', async (req, res) => {
+app.post('/review', async (req, res) => {
     const { url, message, rating } = req.body;
 
     // Check if rating is within valid range (0-5)
@@ -167,7 +166,7 @@ const sendUserNotification = async (email, reporting, description) => {
 
 // API endpoint to add a report
 app.post('/api/report', async (req, res) => {
-    const { reportingTo, scamType, description, location, attachments } = req.body;
+    const { reportingTo, scamType, description, email, attachments } = req.body;
 
     try {
         const existingReport = await Report.findOne({
@@ -184,14 +183,14 @@ app.post('/api/report', async (req, res) => {
             reportingTo,
             scamType,
             description,
-            location,
+            email,
             attachments,
         });
 
         await newReport.save();
 
-        if (location) {
-            await sendUserNotification(location, reportingTo, description).catch(console.error);
+        if (email) {
+            await sendUserNotification(email, reportingTo, description).catch(console.error);
         }
 
         const reports = await Report.aggregate([
@@ -213,7 +212,7 @@ app.post('/api/report', async (req, res) => {
 // Test email route
 app.get('/test-email', (req, res) => {
     sendReportToCyberBureau("Test Reporting", []);
-    sendUserNotification("lamintamang945@gmail.com", "Cyber Bureau", "Test");
+    sendUserNotification(process.env.EMAIL_USER, "Cyber Bureau", "Test");
     res.send("Test email sent.");
 });
 

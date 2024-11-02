@@ -4,9 +4,7 @@ import './Profile.css';
 const Profile = () => {
     const [profile, setProfile] = useState({});
     const [isEditing, setIsEditing] = useState(false);
-    const [newUsername, setNewUsername] = useState('');
     const [newEmail, setNewEmail] = useState('');
-    const [newPhone, setNewPhone] = useState(''); // Add this line to define newPhone and setNewPhone
     const [errors, setErrors] = useState({});
 
     useEffect(() => {
@@ -47,9 +45,7 @@ const Profile = () => {
         setErrors({});
 
         const updateData = {
-            username: newUsername || profile.username,
             email: newEmail || profile.email,
-            phoneNumber: newPhone || profile.phoneNumber,
         };
 
         try {
@@ -79,7 +75,7 @@ const Profile = () => {
         <div className="profile-container">
             <div className="profile-header">
                 <h1>{profile.username}</h1>
-                <button className="logout-button" onClick={handleLogout}>Logout</button> {/* Logout button */}
+                <button className="logout-button" onClick={handleLogout}>Logout</button>
             </div>
             <div className="profile-details">
                 <p><strong>First Name:</strong> {profile.firstName}</p>
@@ -93,7 +89,7 @@ const Profile = () => {
 
             {isEditing && (
                 <div className="form-container">
-                    <h2>Edit Profile</h2>
+                    <h2>Edit Email</h2>
                     {errors.message && <p className="error-message">{errors.message}</p>}
                     <form onSubmit={handleSubmit}>
                         <input

@@ -5,7 +5,7 @@ const reportSchema = new mongoose.Schema({
   reportingTo: { type: String, required: true },
   scamType: { type: String, required: true },
   description: { type: String, required: true },
-  location: { type: String },
+  email: { type: String },
   attachments: { type: String },
 });
 

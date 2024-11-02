@@ -6,7 +6,7 @@ export default function Report() {
     reportingTo: '',
     scamType: '',
     description: '',
-    location: '',
+    email: '',
     attachments: ''
   });
 
@@ -48,7 +48,7 @@ export default function Report() {
           reportingTo: '',
           scamType: '',
           description: '',
-          location: '',
+          email: '',
           attachments: '',
         });
       } else {
@@ -104,8 +104,8 @@ export default function Report() {
           <label className="label">Email</label>
           <input
             type="email"
-            name="location"
-            value={formData.location}
+            name="email"
+            value={formData.email}
             onChange={handleChange}
             className="input-text"
           />

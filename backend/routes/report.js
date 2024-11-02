@@ -5,13 +5,13 @@ const Report = require('../models/Report');
 // POST request to submit report
 router.post('/', async (req, res) => {
   try {
-    const { reportingTo, scamType, description, location, attachments } = req.body;
+    const { reportingTo, scamType, description, email, attachments } = req.body;
 
     const newReport = new Report({
       reportingTo,
       scamType,
       description,
-      location,
+      email,
       attachments,
     });
 

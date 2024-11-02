@@ -96,8 +96,6 @@ router.get('/profile', authenticate, async (req, res) => {
    }
 });
 
-
-// Update user profile (requires authentication)
 // Update user profile (requires authentication)
 router.put('/profile', authenticate, upload.single('photo'), async (req, res) => {
    const { firstName, lastName, email, phone } = req.body;
